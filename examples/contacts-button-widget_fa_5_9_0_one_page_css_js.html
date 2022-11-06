@@ -1,0 +1,123 @@
+<html>
+<head>
+<!-- https://github.com/axxler/contacts-button-widget -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1 class="center">Contacts button widget</h1>
+	<!-- [START] Contact Widget Button -->
+	<div id="contact_widget_substrate"></div>
+	<div id="contact_widget_button" class="contact_widget_left d-flex align-items-center justify-content-center">
+		<div class="contact-widget-pulsation"></div>
+		<div class="contact-widget-icon text-center d-flex align-items-center justify-content-center"><i class="fa fas fa-envelope"></i><span class="contact-widget-text d-none">Contact button</span></div>
+		<div class="contact-widget-dropdown d-flex flex-column align-items-start">
+			<a rel="noopener noreferrer" href="https://m.me/my-facebook-messenger" target="_blank" class="contact-widget-item d-flex align-items-center"><span class="contact-widget-item-icon contact-widget-messenger d-flex align-items-center justify-content-center"><i class="fab fa-facebook-messenger"></i></span><span>Messenger</span></a>		
+			<a rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=+199999999999" target="_blank" class="contact-widget-item d-flex align-items-center"><span class="contact-widget-item-icon contact-widget-whatsapp d-flex align-items-center justify-content-center"><i class="fab fa-whatsapp"></i></span><span>WhatsApp</span></a>
+			<a rel="noopener noreferrer" href="https://t.me/+199999999999" target="_blank" class="contact-widget-item d-flex align-items-center"><span class="contact-widget-item-icon contact-widget-telegram d-flex align-items-center justify-content-center"><i class="fab fa-telegram"></i></span><span>Telegram</span></a>
+			<a rel="noopener noreferrer" href="viber://chat?number=+199999999999" target="_blank" class="contact-widget-item d-flex align-items-center contact-widget-viber-desktop"><span class="contact-widget-item-icon contact-widget-viber d-flex align-items-center justify-content-center"><i class="fa-phone-square fab fa-viber"></i></span><span>Viber</span></a>
+			<a rel="noopener noreferrer" href="viber://add?number=+199999999999" target="_blank" class="contact-widget-item d-flex align-items-center contact-widget-viber-mobile"><span class="contact-widget-item-icon contact-widget-viber d-flex align-items-center justify-content-center"><i class="fa-phone-square fab fa-viber"></i></span><span>Viber</span></a>
+			<a rel="noopener noreferrer" href="mailto:email@to.me" class="contact-widget-item d-flex align-items-center"><span class="contact-widget-item-icon contact-widget-email d-flex align-items-center justify-content-center"><i class="far fa-envelope fa fa-envelope-open"></i></span><span>email@to.me</span></a>
+			<div href="javascript:;" data-src="#callback_form" data-fancybox class="contact-widget-item d-flex align-items-center">
+				<span class="contact-widget-item-icon contact-widget-call d-flex align-items-center justify-content-center"><i class="fas fa fa-phone"></i></span><span>Callback request</span>
+			</div>
+			<a href="/contact-us" class="contact-widget-item d-flex align-items-center"><span class="contact-widget-item-icon contact-widget-contacts d-flex align-items-center justify-content-center"><i class="fas fa fa-address-book"></i></span><span>Our contacts</span></a>
+		</div>
+	</div>
+	<!-- [END] Contact Widget Button -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" media="screen" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    /*********** [START] Contact widget button ***********/
+	$(document).ready(function() {
+		$('#contact_widget_button').on('click', function() {
+			$(this).toggleClass('clicked');
+			$('.contact-widget-dropdown').toggleClass('expanded');
+			$('.contact-widget-icon .fa-envelope, #back-top').toggleClass('d-none');
+			$('.contact-widget-icon .contact-widget-text').toggleClass('d-none');
+			$('#contact_widget_substrate').toggleClass('active');
+		});
+
+		$('#contact_widget_substrate').on('click', function() {
+			$(this).removeClass('active');
+			$('.contact-widget-dropdown').removeClass('expanded');
+			$('.contact-widget-icon .fa-envelope, #back-top').removeClass('d-none');
+			$('.contact-widget-icon .contact-widget-text').toggleClass('d-none');
+			$('#contact_widget_button').removeClass('clicked');
+		});
+
+		$('.contact-widget-dropdown').click(function(e) {
+			e.stopPropagation();
+		});
+	});
+	/*********** [END] Contact widget button ***********/
+</script>
+
+<style>
+body {background: rgb(131,58,180); background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);}
+a{text-decoration: none;}
+h1 {  font-size: 70px;  font-weight: 600;  color: #fdfdfe;  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,    0px 0px 20px #b393d3;}
+.center {  display: flex;  justify-content: center;  align-items: center;  height: 90%;  overflow-y: hidden;}
+
+/* [START] Contact widget button */
+#contact_widget_button {font-family: sans-serif; font-size: 14px; line-height: 1.15;}
+#contact_widget_button * {outline: none;}
+#contact_widget_button *, #contact_widget_button *::before, #contact_widget_button *::after {box-sizing: border-box;}
+#contact_widget_button .text-center {text-align: center !important;}
+#contact_widget_button .align-items-center {-ms-flex-align: center !important;align-items: center !important;}
+#contact_widget_button .justify-content-center {-ms-flex-pack: center !important;justify-content: center !important;}
+#contact_widget_button {display: -ms-flexbox !important;display: -webkit-flex !important;display: flex !important;}
+#contact_widget_button .d-flex {display: -ms-flexbox !important;display: -webkit-flex !important;display: flex !important;}
+#contact_widget_button .d-none {display: none !important;}
+#contact_widget_button .align-items-start {-ms-flex-align: start !important;align-items: flex-start !important;}
+#contact_widget_button .flex-column {-ms-flex-direction: column !important;flex-direction: column !important;}
+
+@-webkit-keyframes pulsation { 0%{-ms-transform:scale(0);-webkit-transform:scale(0);transform:scale(0);opacity:1} 50%{opacity:.5} to{-ms-transform:scale(1);-webkit-transform:scale(1);transform:scale(1);opacity:0}}
+@keyframes pulsation { 0%{-ms-transform:scale(0);-webkit-transform:scale(0);transform:scale(0);opacity:1} 50%{opacity:.5} to{-ms-transform:scale(1);-webkit-transform:scale(1);transform:scale(1);opacity:0}}
+@-webkit-keyframes iconOpacity {0%{opacity:0}	40%{opacity:.96}	60%{opacity:1}	80%{opacity:.96}	100%{opacity:0}}
+@keyframes iconOpacity {0%{opacity:0} 40%{opacity:.96} 60%{opacity:1} 80%{opacity:.96} 100%{opacity:0}}
+#contact_widget_button{background:rgb(245, 22, 68); position:fixed;right:15px;bottom:15px;width:50px;height:50px;border-radius:100%;cursor:pointer;z-index:1001} /* green #25d366 */
+#contact_widget_button.clicked{z-index:1041}
+#contact_widget_substrate{position:fixed;top:0;right:0;bottom:0;left:0;background:transparent;z-index:0;display:none}
+#contact_widget_substrate.active{z-index:1020;display:block}
+.contact-widget-pulsation{background:rgb(245, 22, 68); width:80px;height:80px;border-radius:50px;position:absolute;left:-15px;top:-15px;z-index:-1;-ms-transform:scale(0);-webkit-transform:scale(0);transform:scale(0);-webkit-animation:pulsation 2s infinite;animation:pulsation 2s infinite}
+.contact-widget-icon{color:#fff;width:100%;font-size:20px;overflow:hidden}
+.contact-widget-icon .fa-envelope{-webkit-animation:iconOpacity 3s infinite;animation:iconOpacity 3s infinite;width:20px;height:20px}
+.contact-widget-text{font-size:7px;text-transform:uppercase;line-height:9px;color:#fff}
+.contact-widget-dropdown{position:absolute;bottom:60px;right:36px;padding:20px;border-radius:6px;background:#fff;display:block;opacity:0;z-index:-1;margin-bottom:20px;-webkit-transition:margin-bottom .3s ease,opacity .3s ease;transition:margin-bottom .3s ease,opacity .3s ease;box-shadow:5px 12px 30px rgba(0,0,0,.35);visibility:hidden;min-width:250px}
+.contact-widget-dropdown.expanded{margin-bottom:0;opacity:.98;z-index:1;visibility:visible}
+.contact-widget-item{color:#333}
+.contact-widget-item:hover {color:rgb(10, 120, 191);}
+.contact-widget-item:not(:last-child){margin-bottom:18px}
+.contact-widget-item-icon{font-size:20px; display:block;-ms-flex:0 0 40px;flex:0 0 40px;max-width:40px;width:40px;height:40px;border-radius:100%;margin-right:10px;color:#fff}
+.contact-widget-item-icon svg{width:20px!important;height:20px}
+.contact-widget-messenger{background:#0084ff}
+.contact-widget-viber{background:#7c529d}
+.contact-widget-telegram{background:#2ca5e0}
+.contact-widget-skype{background:#31c4ed}
+.contact-widget-whatsapp{background:#25d366}
+.contact-widget-email{background:#50a8ff}
+.contact-widget-call{background:#3cba8b}
+.contact-widget-contacts{background:#141e1a}
+
+@media (min-width: 420px) {
+	#contact_widget_button{right:30px;width:70px;height:70px}
+	.contact-widget-pulsation{width:100px;height:100px}
+	.contact-widget-icon{font-size:28px}
+	.contact-widget-icon .fa-envelope{width:28px;height:28px}
+	.contact-widget-text{font-size:9px;line-height:10px}
+	.contact-widget-dropdown{right:60px}
+}
+@media (min-width: 992px) {
+#contact_widget_button{bottom:30px}
+	#contact_widget_button .contact-widget-viber-mobile{display:none!important}
+}
+@media (max-width: 991px) {
+	#contact_widget_button .contact-widget-viber-desktop{display:none!important}
+}
+/* [End] Contact widget button */
+
+</style>
+
+</body>
+</html>
